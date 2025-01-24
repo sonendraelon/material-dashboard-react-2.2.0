@@ -23,6 +23,7 @@ export default function sidenavLogoLabel(theme, ownerState) {
     ml: 0.5,
     fontWeight: fontWeightMedium,
     wordSpacing: pxToRem(-1),
+    cursor: "pointer", // Add cursor pointer for clickable logo
     transition: transitions.create("opacity", {
       easing: transitions.easing.easeInOut,
       duration: transitions.duration.standard,

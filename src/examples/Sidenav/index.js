@@ -72,7 +72,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
         const hasSubRoutes = collapse && collapse.length > 0;
 
         returnValue = (
-          <>
+          <React.Fragment key={key}>
             {href ? (
               <Link
                 href={href}
@@ -145,7 +145,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
                 </List>
               </Collapse>
             )}
-          </>
+          </React.Fragment>
         );
       } else if (type === "title") {
         returnValue = (
@@ -186,7 +186,16 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       variant="permanent"
       ownerState={{ transparentSidenav, whiteSidenav, miniSidenav, darkMode }}
     >
-      {/* Rest of the component remains the same */}
+      <MDBox
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        p={2}
+        onClick={() => toggleMenu("logo")}
+        sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}
+      >
+        <img src={brand} alt={brandName} width="100%" />
+      </MDBox>
       <List>{renderRoutes}</List>
       {/* Upgrade button remains unchanged */}
     </SidenavRoot>
